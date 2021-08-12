@@ -50,7 +50,7 @@ def get_params(loan_id_input):
     params['LENDER_TERM'] = [r.json()["data"]["lend"]["loans"]["values"][0]["lenderRepaymentTerm"]]
     #params['NUM_JOURNAL_ENTRIES']
     #params['NUM_BULK_ENTRIES']
-    params['BORROWER_GENDER'] = [r.json()["data"]["lend"]["loans"]["values"][0]["gender"]]
+    params['BORROWER_GENDERS'] = [r.json()["data"]["lend"]["loans"]["values"][0]["gender"]]
     #params['BORROWER_PICTURED']
     params['REPAYMENT_INTERVAL'] = [r.json()["data"]["lend"]["loans"]["values"][0]['repaymentInterval']]
     params['LOAN_AMOUNT'] = [r.json()["data"]["lend"]["loans"]["values"][0]['loanAmount']]
