@@ -7,7 +7,6 @@ import numpy as np
 from PIL import Image
 import lightgbm as lgb
 
-
 def app():
 
     b1, b2 = st.columns((2,1)) # Divide the upper section of the page into two columns
@@ -17,8 +16,10 @@ def app():
         st.markdown('''
         > Please input your [*Kiva*](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc) Loan ID to analyse your loan application.  
         > This machine learning model has been trained on *~2,000,000* past Kiva loan requests.  
-        > The biggest contributing factors towards the outcome prediction of the model will be shown.
-                        ''')
+        > The biggest contributing factors towards the outcome prediction of the model will be shown.  
+        > You can find a loan ID from the url of any [**Kiva Loan**](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc)     
+        > This site is under construction.
+                       ''')
     with b2:
         # Declare a form and call methods directly on the returned object
         with st.form('Form1'):
@@ -26,10 +27,10 @@ def app():
             submit_button = st.form_submit_button(label='🚀 Get Predictions')
 
     if loan_id_input != "":
-        st.empty()
+        
         try:
             params = kiva_api.get_params(loan_id_input)
-            X_user = preprocessing.preprocessing(loan_id_input) # Get user information and preprocess it
+            X_user = preprocessing.preprocessing(params) # Get user information and preprocess it
             bst = lgb.Booster(model_file='lgb.txt') # Load LightGBM Model
             prediction = bst.predict(X_user) # predict the outcome of the loan request
             if prediction[0] > 0.975:
