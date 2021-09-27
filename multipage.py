@@ -17,7 +17,9 @@ class MultiPage:
     def run(self):
         # Define the sidebar navigation
         st.sidebar.markdown('# 🧭 Navigation')
+        
         page = st.sidebar.radio(label='Go to', options=self.pages, format_func=lambda x: x['title'])
+        st.sidebar.markdown(' *** ')
 
         # Run the app function
         page['function']()

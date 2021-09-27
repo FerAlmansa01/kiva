@@ -83,9 +83,9 @@ def gender(gender_list):
         return 'mixed group'
 
 @st.cache
-def preprocessing(loan_id_input):
+def preprocessing(params):
 
-    params_dict = get_params(loan_id_input) # Get the params using kiva API
+    params_dict = params # Get the params using kiva API
     df = pd.DataFrame.from_dict(params_dict, orient='columns') # Turn params dict into pandas dataframe
 
     df['POSTED_TIME'] = pd.to_datetime(df['POSTED_TIME'], format='%Y-%m-%dT%H:%M:%SZ') # convert the posted time from string into pandas datetime
