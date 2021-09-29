@@ -47,7 +47,13 @@ def app():
         def load_image(file_path):
             image = Image.open(file_path)
             return image
-        st.image(load_image('SHAP_summary_plot_hd-min.png'))    
+        st.image(load_image('SHAP_summary_plot_hd-min.png')) 
+
+        #st.markdown('''
+        #### Plot Explaination
+
+        #''')
+
         st.markdown('''
             
         ***

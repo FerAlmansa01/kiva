@@ -45,16 +45,25 @@ def app():
             prediction = bst.predict(X_user) # predict the outcome of the loan request
             if prediction[0] > 0.975:
                 st.balloons()
-            #if prediction[0] > 0.8:
-            #   st.markdown("<font color=‘blue’>THIS TEXT WILL BE RED</font>", unsafe_allow_html=True)
+            
+
             st.markdown(f'''
-            ***
-            > ## Model Prediction: 
-            > ## **{np.round(100*prediction[0], decimals=2)}%** Chance of Funding!
-            > ### Loan Name: {params['LOAN_NAME'][0]}
-            > #### Loan Description
-            > {params['DESCRIPTION'][0]}
+            *** ''')
+
+            st.markdown(f'''
+            ## Model Prediction:''')
+
+            st.markdown(f'''
+            > ## **{np.round(100*prediction[0], decimals=2)}%** Chance of Funding! ''')
+
+            st.markdown(f'''
+            ### Loan Name: {params['LOAN_NAME'][0]}''')
+
+            st.markdown('#### Loan Description')
+            st.markdown(f'''
+            {params['DESCRIPTION'][0]}
             ''')
+
             s = """
             params = kiva_api.get_params(loan_id_input) # Call get_params function in kiva_api file
             image = st.image(f"{params['IMAGE_URL']}")
