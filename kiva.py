@@ -8,23 +8,31 @@ from PIL import Image
 import lightgbm as lgb
 
 def app():
-
-    b1, b2 = st.columns((2,1)) # Divide the upper section of the page into two columns
-    with b1:
+    st.markdown(''' # 📗 KIVA Loan Funding Predictor ''')
+    b1, b2, b3, b4 = st.columns((1, 10, 1, 6)) # Divide the upper section of the page into two columns
+    with b2:
         # Page title and information for user
-        st.markdown(''' # 📗 KIVA Loan Funding Predictor ''')
+        
+        st.markdown('''
+            > ### About the Project
+            > This site is a Loan Predictor. It is intended to accuratly predict the Loan Outcome of active loans on the Kiva Crowdfunding Site.     
+            > The machine learning model used has been trained on *~2,000,000* past Kiva loan requests.
+            > More infomation is available on the project description page.
+            ''')
+        #> The biggest contributing factors towards the outcome prediction of the model will be shown.
         st.markdown('''
         > ### How to Use
-        > - Please input your [*Kiva*](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc) Loan ID to analyse your loan application.  
-        > This machine learning model has been trained on *~2,000,000* past Kiva loan requests.  
-        > The biggest contributing factors towards the outcome prediction of the model will be shown.  
-        > You can find a loan ID from the url of any [**Kiva Loan**](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc)     
-        > This site is under construction.
+        > 1. Find a loan that you would like to predict its outcome on the [**Kiva**](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc) Crowdfunding Site.
+        > 2. Input your [*Kiva*](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc) Loan URL in the form to the top right to predict the Loan outcome.  
+          
                        ''')
-    with b2:
+    with b4:
+        st.markdown('''
+        ### Input URL for Prediction 📊
+        ''')
         # Declare a form and call methods directly on the returned object
         with st.form('Form1'):
-            loan_id_input = st.text_input(label='Enter Active Loan ID (try 2221834)')
+            loan_id_input = st.text_input(label='Enter Active Loan URL or Loan ID (try 2243523)')
             submit_button = st.form_submit_button(label='🚀 Get Predictions')
 
     if loan_id_input != "":
@@ -41,10 +49,11 @@ def app():
             #   st.markdown("<font color=‘blue’>THIS TEXT WILL BE RED</font>", unsafe_allow_html=True)
             st.markdown(f'''
             ***
-            > ## Model Prediction: **{np.round(100*prediction[0], decimals=2)}%** chance of funding
-            > ### Welcome {params['LOAN_NAME'][0]}
+            > ## Model Prediction: 
+            > ## **{np.round(100*prediction[0], decimals=2)}%** Chance of Funding!
+            > ### Loan Name: {params['LOAN_NAME'][0]}
             > #### Loan Description
-            > {params['DESCRIPTION']}
+            > {params['DESCRIPTION'][0]}
             ''')
             s = """
             params = kiva_api.get_params(loan_id_input) # Call get_params function in kiva_api file
