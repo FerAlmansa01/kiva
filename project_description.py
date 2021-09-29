@@ -12,9 +12,9 @@ def app():
             ### Internship Project Supervisior - Dr Stefan Zohren 
 
             > #### Project Aims
-            > This project aims to develop a kiva loan funding *prediction model* using Machine Learning methods
+            > - This project aims to develop a kiva loan funding *prediction model* using Machine Learning methods
             > and applying *explainable AI techniques* to comprehend the model's prediction.   
-            > By extracting the key predictors of a loan's success on kiva, 
+            > - By extracting the key predictors of a loan's success on kiva, 
             > and suggesting modifications to their loan requests,
             > I hope to improve the chances of sucessful loan funding for a borrower. 
         ''')

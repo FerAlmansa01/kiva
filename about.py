@@ -7,7 +7,7 @@ def app():
     c1, c2, c3 = st.columns((2,2,1))
     with b1:
         st.markdown('''
-            # ⚙️ Engineering Student 🎓 & Developer 🖥️
+            # 🎓 Engineering Student & Developer 🖥️
             ''')
         st.markdown(''' *** ''')
     
@@ -16,7 +16,12 @@ def app():
         st.markdown(''' 
             Hello, my name is Fernando Almansa, and I'm a 3rd Year Engineering Science student at the University of Oxford. When I'm not busy being a student, I enjoy working on Data Science and Software Engineering projects.
 
-            #### Check out my 🔗 [LinkedIn](https://www.linkedin.com/in/fernando-almansa-1ba085198/)
+            #### Reach me at 📫
+            - #### [Email](mailto:fernando.almansamorenodebarreda@oriel.ox.ac.uk)
+
+            #### Check out my 🔗 
+            - #### [LinkedIn](https://www.linkedin.com/in/fernando-almansa-1ba085198/)      
+            - #### [Github](https://github.com/FerAlmansa01)
     ''')
     with c2:
         st.markdown(''' 
