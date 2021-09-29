@@ -5,6 +5,8 @@ from PIL import Image
 def app():
     st.markdown('''
         # 🔭 SHAP Values (SHapley Additive exPlanations)
+
+        > *SHAP was used in this project in order to interperate the results the model, trained on the Kiva data set, produced.*
         ''')
     
     # Define columns

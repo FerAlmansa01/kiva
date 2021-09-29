@@ -14,7 +14,8 @@ def app():
         # Page title and information for user
         st.markdown(''' # 📗 KIVA Loan Funding Predictor ''')
         st.markdown('''
-        > Please input your [*Kiva*](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc) Loan ID to analyse your loan application.  
+        > ### How to Use
+        > - Please input your [*Kiva*](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc) Loan ID to analyse your loan application.  
         > This machine learning model has been trained on *~2,000,000* past Kiva loan requests.  
         > The biggest contributing factors towards the outcome prediction of the model will be shown.  
         > You can find a loan ID from the url of any [**Kiva Loan**](https://www.kiva.org/lend/filter?sortBy=loanAmountDesc)     
@@ -27,8 +28,9 @@ def app():
             submit_button = st.form_submit_button(label='🚀 Get Predictions')
 
     if loan_id_input != "":
-        
+
         try:
+            loan_id_input = loan_id_input.split('/')[-1]
             params = kiva_api.get_params(loan_id_input)
             X_user = preprocessing.preprocessing(params) # Get user information and preprocess it
             bst = lgb.Booster(model_file='lgb.txt') # Load LightGBM Model

@@ -5,10 +5,12 @@ import os
 import base64
 
 def app():
-    c1, c2 = st.columns((3,1)) # Define the page columns
-    with c1: 
-        c1.markdown('''
-            # Oxford Man Institute for Quantative Finance
+    st.markdown('''
+        # Oxford Man Institute for Quantative Finance
+    ''')
+    c1, c2, c3, c4 = st.columns((2,20,3,8)) # Define the page columns
+    with c2: 
+        c2.markdown('''
             ### Internship Project Supervisior - Dr Stefan Zohren 
 
             > #### Project Aims
@@ -18,10 +20,10 @@ def app():
             > and suggesting modifications to their loan requests,
             > I hope to improve the chances of sucessful loan funding for a borrower. 
         ''')
-    with c2:
+    with c4:
         image = Image.open('oxford-man.png')
-        c2.image(image)
-        c2.markdown('''[Oxford Man Institute](https://www.oxford-man.ox.ac.uk/)''')
+        c4.image(image)
+        c4.markdown('''[Oxford Man Institute](https://www.oxford-man.ox.ac.uk/)''')
 
     with st.expander(label = 'Data Preprocessing'):
         st.markdown('''   
