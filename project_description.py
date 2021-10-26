@@ -84,8 +84,8 @@ def app():
     with st.expander(label= 'Technologies Used'):
         st.markdown('''
         > #### Python Libraries Used
-        > - Numpy, Pandas, Matplotlib (pyplot)
-        > - NLTK, LightGBM, XGBoost, Pickle, Streamlit
+        > - Numpy, Pandas, Matplotlib (pyplot), NLTK
+        > - LightGBM, XGBoost, Pickle, SHAP, Streamlit
 
         > #### Other Technologies
         > - GraphQL
