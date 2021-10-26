@@ -81,6 +81,17 @@ def app():
             > configuration that achieved the best results for your production model.
             ''')
     
+    with st.expander(label= 'Technologies Used'):
+        st.markdown('''
+        > #### Python Libraries Used
+        > - Numpy, Pandas, Matplotlib (pyplot)
+        > - NLTK, LightGBM, XGBoost, Pickle, Streamlit
+
+        > #### Other Technologies
+        > - GraphQL
+        > - Github
+        ''')
+    
     
 
         

@@ -34,6 +34,9 @@ def app():
 
             ### Third Year Group Project
             - Designing Intelligent Musical Desgin Technology
+
+            ### Third Year Computational Project
+            - Neural Network Verification
         ''')
     with c3:
         image = Image.open('fernando-almansa.jpg')

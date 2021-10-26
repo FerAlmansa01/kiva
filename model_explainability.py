@@ -47,7 +47,13 @@ def app():
         def load_image(file_path):
             image = Image.open(file_path)
             return image
-        st.image(load_image('SHAP_summary_plot_hd-min.png')) 
+        st.image(load_image('SHAP_summary_plot_hd-min.png'))
+        with st.expander('Feature value explaination'):
+            st.markdown('''
+            All the categorical variables are mean encoded, so a high feature value (red on the SHAP summary plot) corresponds to a high mean encoded score of a specific feature value.
+
+            The Loan Progress Score is a calculation of the rate of loan funding normalized by the loan amount and the proportion of time elapsed in relation to the loan's fundraising deadline date. This approach assumes that loans are funded in a linear fashion which is not the case. However, for the purpose of this model, this proved to be a fair approximation. 
+            ''') 
 
         #st.markdown('''
         #### Plot Explaination

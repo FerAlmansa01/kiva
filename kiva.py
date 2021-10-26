@@ -32,7 +32,7 @@ def app():
         ''')
         # Declare a form and call methods directly on the returned object
         with st.form('Form1'):
-            loan_id_input = st.text_input(label='Enter Active Loan URL or Loan ID (try 2243523)')
+            loan_id_input = st.text_input(label='Enter Active Loan URL or Loan ID')
             submit_button = st.form_submit_button(label='🚀 Get Predictions')
 
     if loan_id_input != "":
